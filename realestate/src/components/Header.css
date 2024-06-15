@@ -1,0 +1,200 @@
+/* src/components/Header.css */
+
+  
+  .header.hidden {
+    transform: translateY(-100%);
+  }
+  
+  .header.visible {
+    transform: translateY(0);
+  }
+  
+ 
+  
+  .nav-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-between;
+     /* Allow the nav container to take up remaining space */
+  }
+  
+  .nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 15px; /* Adjust based on your design */
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  .nav-item span {
+    font-size: 14px; /* Adjust based on your design */
+    color: #333; /* Adjust based on your design */
+  }
+ 
+  .nav-button {
+    background-color: #007BFF; /* Initial background color */
+    color: #fff; /* Initial text color */
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and color */
+    border-radius: 4px; /* Rounded corners */
+    outline: none; /* Remove default outline */
+  }
+  
+  .nav-button:hover {
+    animation: color-change 1s infinite alternate;
+    color: #ffcc00; /* Text color on hover */
+  }
+  
+  @keyframes color-change {
+    0% {
+      background-color: #00ff37; /* Initial color */
+    }
+    25% {
+        background-color: #d34299; /* Initial color */
+      }
+    50% {
+      background-color: #0056b3; /* Intermediate color */
+    }
+    100% {
+      background-color: #FF6347; /* Final color */
+    }
+  }
+  
+  .nav-button:focus {
+    outline: none; /* Remove focus outline */
+  }
+  /* src/components/Header.css */
+
+/* Base styles */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    height: 60px; /* Adjust based on your design */
+    padding: 0 20px; /* Add some padding for spacing */
+    box-sizing: border-box;
+    z-index: 1000; /* Ensure the header is above other content */
+  }
+
+  .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    height: 60px; /* Adjust based on your design */
+    padding: 0 20px; /* Add some padding for spacing */
+    box-sizing: border-box;
+  }
+  
+  .logo {
+    width: 100px; /* Adjust based on your design */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .menu-icon {
+    display: none; /* Initially hide the menu icon */
+    cursor: pointer;
+    margin-left: auto; /* Pushes the menu icon to the right */
+    padding: 10px;
+  }
+  
+  .menu-icon-line {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 4px 0;
+    transition: transform 0.3s ease;
+  }
+  
+  .menu-icon-line.open:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .menu-icon-line.open:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-icon-line.open:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Pushes the menu to the right */
+  }
+  
+  .nav-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  .nav-menu li {
+    margin: 0 15px;
+  }
+  
+  .nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px; /* Adjust based on your design */
+    transition: color 0.3s ease;
+  }
+  
+  .nav-menu a:hover {
+    color: #007BFF;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .header {
+      padding: 10px 20px; /* Adjust padding for smaller screens */
+      height: auto; /* Allow header to grow based on content */
+    }
+  
+    .menu-icon {
+      display: block; /* Show menu icon on smaller screens */
+    }
+  
+    .nav-menu {
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background-color: #fff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      flex-direction: column;
+      width: 200px; /* Adjust menu width as needed */
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+  
+    .nav-menu.open {
+      max-height: 300px; /* Adjust max-height to show menu items */
+    }
+  
+    .nav-menu ul {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px;
+    }
+  
+    .nav-menu li {
+      margin: 10px 0;
+    }
+  }
+  
