@@ -158,6 +158,14 @@
   .nav-menu a:hover {
     color: #007BFF;
   }
+
+  .text{
+    font-size: medium;
+    font-weight: 700;
+    margin-left: 2rem;
+    color: #923232;
+    
+  }
   
   /* Responsive styles */
   @media (max-width: 768px) {

@@ -46,12 +46,12 @@ const Header = () => {
       </div>
       <nav className={`nav-menu ${showMenu ? 'open' : ''}`}>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Properties</a></li>
-          <li><a href="#">Blogs</a></li>
-          <li><a href="#">Appreciation</a></li>
-          <li><a href="#">Market</a></li>
-          <li><a href="#">Contact Us</a></li>
+          <li><a style={{fontWeight:'700',paddingLeft:'1rem'}}>Home</a></li>
+          <li><a style={{fontWeight:'700',paddingLeft:'1rem'}}>Properties</a></li>
+          <li><a style={{fontWeight:'700',paddingLeft:'1rem'}}>Blogs</a></li>
+          <li><a style={{fontWeight:'700',paddingLeft:'1rem'}}>Appreciation</a></li>
+          <li><a style={{fontWeight:'700',paddingLeft:'1rem'}}>Market</a></li>
+          <li><a style={{fontWeight:'700',paddingLeft:'1rem'}}>Contact Us</a></li>
         </ul>
       </nav>
     </header>
