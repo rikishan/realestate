@@ -1,0 +1,35 @@
+.real-estate-item {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 300px;
+    margin: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .property-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .heart-button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .property-details {
+    padding: 16px;
+  }
+  
+  .property-address,
+  .property-price {
+    margin: 0;
+    font-size: 16px;
+  }
+  

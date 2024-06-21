@@ -7,6 +7,15 @@
   pointer-events: none;
 }
 
+.properties-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: red;
+  padding: 20px;
+  flex-wrap: wrap; /* Optional: to wrap items if there's not enough space */
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
