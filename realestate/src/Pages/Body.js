@@ -1,23 +1,42 @@
 import React, { useEffect } from 'react';
 import '../components/Body.css';
 
+
+
 const Body = () => {
     useEffect(() => {
         const findYourHomeElement = document.querySelector('.find-your-home');
         const realEstateElement = document.querySelector('.real-estate');
 
-        // Animation sequence
-        setTimeout(() => {
-            findYourHomeElement.classList.add('fade-up');
-        }, 2000);
+        const animateText = () => {
+            // Start the animation sequence
+            setTimeout(() => {
+                findYourHomeElement.classList.add('fade-up');
+            }, 2000);
 
-        setTimeout(() => {
-            findYourHomeElement.classList.add('hide-text');
-        }, 4000);
+            setTimeout(() => {
+                findYourHomeElement.classList.add('hide-text');
+            }, 4000);
 
-        setTimeout(() => {
-            realEstateElement.classList.add('appear-down');
-        }, 6000);
+            setTimeout(() => {
+                realEstateElement.classList.add('appear-down');
+            }, 6000);
+
+            // Reset classes to restart the animation
+            setTimeout(() => {
+                findYourHomeElement.classList.remove('fade-up', 'hide-text');
+                realEstateElement.classList.remove('appear-down');
+            }, 8000);
+        };
+
+        // Initial animation
+        animateText();
+
+        // Set interval to repeat the animation every 8 seconds
+        const interval = setInterval(animateText, 6000);
+
+        // Cleanup interval on component unmount
+        return () => clearInterval(interval);
     }, []);
 
     return (

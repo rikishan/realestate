@@ -9,7 +9,21 @@ const RealEstateItem = ({ image, address, price }) => {
   };
 
   return (
-    <div className="real-estate-item">
+    <div className="real-estate-item" style={{ position: 'relative' }}>
+      {true?<div
+        style={{
+          position: 'absolute',
+          top: '10px',
+          left: '10px',
+          backgroundColor: '#f8d401',
+          color: '#fff',
+          padding: '5px 10px',
+          fontWeight: 'bold',
+          borderRadius: '5px',
+        }}
+      >
+        FEATURED
+      </div>:<></>}
       <img src={image} alt="Property" className="property-image" />
       <button className="heart-button" onClick={toggleFavorite}>
         {isFavorited ? '❤️' : '🤍'}
