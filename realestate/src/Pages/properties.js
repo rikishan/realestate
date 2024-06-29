@@ -162,7 +162,7 @@ const RecommendedProperties = () => {
           Office
         </button>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 50 }}>
+      <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 20 }}>
         {visibleProperties.map((property, index) => (
           <RealEstateItem
             key={index}
