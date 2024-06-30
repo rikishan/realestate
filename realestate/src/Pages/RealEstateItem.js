@@ -22,7 +22,7 @@ const RealEstateItem = ({ image, address, price, bedrooms, bathrooms, area, agen
         <div style={{
           backgroundColor: '#f8d401',
           color: '#fff',
-          padding: '5px 10px',
+          padding: '2px 2px 2px 2px',
           fontWeight: 'bold',
           borderRadius: '5px',
         }}>FEATURED</div>
@@ -69,11 +69,13 @@ const RealEstateItem = ({ image, address, price, bedrooms, bathrooms, area, agen
             {area} SqFT
           </span>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex',alignItems:'center', flexDirection: 'row', justifyContent: 'space-between' ,width:'100%'}}>
+          
           <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'row' }}>
-            <img src="/path/to/agent-image.png" alt="Agent" style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'red' }} />
+            <img src="/path/to/agent-image.png" alt="Agent" style={{ width: '40px', height: '40px', borderRadius: '50%', }} />
             <span style={{ marginLeft: '10px' }}>kishan</span>
           </div>
+         
           <p style={{ fontSize: '14px', fontWeight: 'bold', margin: '0' }}>${price}/SqFT</p>
         </div>
       
