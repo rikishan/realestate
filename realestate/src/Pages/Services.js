@@ -1,50 +1,50 @@
 import React, { useState } from 'react';
 
 const CardComponent = () => {
-  const [isSpinning, setIsSpinning] = useState(false);
+  const [hoveredCard, setHoveredCard] = useState(null);
 
-  const handleMouseEnter = () => {
-    setIsSpinning(true);
+  const handleMouseEnter = (index) => {
+    setHoveredCard(index);
   };
 
   const handleMouseLeave = () => {
-    setIsSpinning(false);
+    setHoveredCard(null);
   };
 
   const cardsData = [
     {
       id: 1,
-      imageUrl: 'https://cdn3.iconfinder.com/data/icons/real-estate-property/33/rent_house_2-512.png',
-      boldText: 'Card 1 Title',
-      description: 'Description for Card 1.',
+      imageUrl: 'https://cdn3.iconfinder.com/data/icons/real-estate-property/33/rent_house_2-512.png', // Replace with actual image path or URL
+      boldText: 'Buy A New Home',
+      description: 'Discover your dream home effortlessly. Explore diverse properties and expert guidance for a seamless buying experience.',
     },
     {
       id: 2,
-      imageUrl: 'path-to-image-2.jpg',
-      boldText: 'Card 2 Title',
-      description: 'Description for Card 2.',
+      imageUrl: 'path-to-image-2.jpg', // Replace with actual image path or URL
+      boldText: 'Rent A Home',
+      description: 'Discover your perfect rental effortlessly. Explore a diverse variety of listings tailored precisely to suit your unique lifestyle needs.',
     },
     {
       id: 3,
-      imageUrl: 'path-to-image-3.jpg',
-      boldText: 'Card 3 Title',
-      description: 'Description for Card 3.',
+      imageUrl: 'path-to-image-3.jpg', // Replace with actual image path or URL
+      boldText: 'Sell A Home',
+      description: 'Sell confidently with expert guidance and effective strategies, showcasing your property\'s best features for a successful sale.',
     },
   ];
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
-      {cardsData.map((card) => (
+    <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', padding: '20px' }}>
+      {cardsData.map((card, index) => (
         <div
           key={card.id}
           style={{
-            width: '250px',
+            width: '300px',
             padding: '20px',
-            border: '1px solid #ccc',
-            boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+           
+            textAlign: 'center',
             transition: 'box-shadow 0.3s ease',
           }}
-          onMouseEnter={handleMouseEnter}
+          onMouseEnter={() => handleMouseEnter(index)}
           onMouseLeave={handleMouseLeave}
         >
           <div
@@ -52,26 +52,26 @@ const CardComponent = () => {
               position: 'relative',
               overflow: 'hidden',
               width: '100%',
-              height: '200px', // Adjust height as per your design
-              ...(isSpinning && {
-                animation: 'spin 1s ease-in-out 3',
-              }),
+              height: '100px',
+              marginBottom: '20px',
             }}
           >
             <img
               src={card.imageUrl}
-              alt="Image"
+              alt="Icon"
               style={{
-                width: '100%',
-                height: 'auto',
-                transition: 'transform 0.3s ease',
+                width: '100px',
+                height: '100px',
+                transition: 'transform 2s ease-in-out',
+                transform: hoveredCard === index ? 'rotate(1000deg)' : 'none', // 1800deg = 5 full rotations
               }}
             />
           </div>
-          <div style={{ paddingTop: '10px' }}>
-            <h2>{card.boldText}</h2>
-            <p>{card.description}</p>
-          </div>
+          <h2>{card.boldText}</h2>
+          <p>{card.description}</p>
+          <a href="#" style={{ color: 'red', textDecoration: 'none' }}>
+            Learn More →
+          </a>
         </div>
       ))}
     </div>

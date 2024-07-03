@@ -1,6 +1,5 @@
 // src/App.js
-import React from 'react';
-
+import React, { useRef } from 'react';
 import './App.css';
 import Header from './Pages/Header';
 import Body from './Pages/Body';
@@ -8,21 +7,40 @@ import RealEstateItem from './Pages/RealEstateItem';
 import RecommendedProperties from './Pages/properties';
 import CardSlider from './Pages/CardSlider';
 import CardComponent from './Pages/Services';
-
+import Counter from './Pages/Counter'
+import Review from './Pages/Review';
+import Footer from './Pages/Footer';
+import Team from './Pages/TeamMember';
 
 function App() {
+  const contactUsRef = useRef(null);
+
+  const scrollToContactUs = () => {
+    contactUsRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="App">
-      <Header />
+      <Header scrollToContactUs={scrollToContactUs} />
       <Body />
       <main>
         <RecommendedProperties/>
         <CardSlider/>
         <CardComponent/>
+        <Counter/>
+        <Review/>
         <p>Scroll down to hide the header. Scroll up to show it.</p>
         {/* Add more content here to make the page scrollable */}
-        <div style={{ height: '200vh', background: '#f0f0f0' }}></div>
+       
+       
       </main>
+      
+       <div ref={contactUsRef} style={{ padding: '50px', backgroundImage: 'url(https://homezennextjs.vercel.app/_next/static/media/banner-footer.4057eb3d.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+
+         <Footer/>
+        
+        </div>
+        {/* <Team/> */}
     </div>
   );
 }

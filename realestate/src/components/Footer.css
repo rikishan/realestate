@@ -1,0 +1,79 @@
+/* src/Pages/Footer.css */
+.footer {
+   background-image: url('https://homezennextjs.vercel.app/_next/static/media/banner-footer.4057eb3d.png');
+   background-color: bisque;
+  }
+  
+  .footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .footer .footer-section {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .footer .footer-section h1, .footer .footer-section h2 {
+    margin-bottom: 10px;
+  }
+  
+  .footer .footer-section .contact p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .footer .footer-section .contact p i {
+    margin-right: 10px;
+  }
+  
+  .footer .footer-section .social form {
+    display: flex;
+  }
+  
+  .footer .footer-section .social form input {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .footer .footer-section .social form .btn {
+    padding: 10px;
+    background: red;
+    color: white;
+    border: none;
+  }
+  
+  .footer .footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #fff;
+  }
+  
+  .footer .footer-bottom p {
+    margin: 0;
+  }
+  
+  .footer .footer-bottom a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer .to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: red;
+    color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    text-align: center;
+    display: none;
+    cursor: pointer;
+  }
+  
+  .footer .to-top i {
+    font-size: 20px;
+  }
+  
