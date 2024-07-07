@@ -10,7 +10,12 @@ import CardComponent from './Pages/Services';
 import Counter from './Pages/Counter'
 import Review from './Pages/Review';
 import Footer from './Pages/Footer';
-import Team from './Pages/TeamMember';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+
 
 function App() {
   const contactUsRef = useRef(null);
@@ -44,5 +49,16 @@ function App() {
     </div>
   );
 }
+const appRouter = createBrowserRouter([
+  {
+    path: '/',
+    element : <App/>
+
+  },
+  {
+    path:'/properties',
+    element:<RecommendedProperties/>
+  }
+])
 
 export default App;

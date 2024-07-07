@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../components/RealEstateItem.css'; // Assuming you will create this CSS file
 
-const RealEstateItem = ({ image, address, price, bedrooms, bathrooms, area, agent }) => {
+const RealEstateItem = ({ image, address, price, bedrooms, bathrooms, area, agent,clicked }) => {
   const [isFavorited, setIsFavorited] = useState(false);
 
   const toggleFavorite = () => {
@@ -9,7 +9,7 @@ const RealEstateItem = ({ image, address, price, bedrooms, bathrooms, area, agen
   };
 
   return (
-    <div className="real-estate-item" style={{ position: 'relative', border: '1px solid #ccc', borderRadius: '10px', marginBottom: '20px' }}>
+    <div onClick={clicked} className="real-estate-item" style={{ position: 'relative', border: '1px solid #ccc', borderRadius: '10px', marginBottom: '20px' }}>
       <div
         style={{
           position: 'absolute',
@@ -20,11 +20,15 @@ const RealEstateItem = ({ image, address, price, bedrooms, bathrooms, area, agen
         }}
       >
         <div style={{
+          display:'flex',
+          justifyContent:'center',
+          alignItems:'center',
           backgroundColor: '#f8d401',
           color: '#fff',
-          padding: '2px 2px 2px 2px',
+          padding: '1px 10px 1px 10px',
           fontWeight: 'bold',
           borderRadius: '5px',
+          fontSize:10
         }}>FEATURED</div>
         <div style={{
           backgroundColor: 'grey',
@@ -53,20 +57,20 @@ const RealEstateItem = ({ image, address, price, bedrooms, bathrooms, area, agen
       </button>
 
       <div style={{ padding: '10px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-        <h2 style={{ margin: '10px 0', fontSize: 15 }}>Casa Lomas De Machalí Machas</h2>
-        <p style={{ color: '#666', fontSize: 14, }}>{address}</p>
+        <h2 style={{ margin: '10px 0', fontSize: 15,color:'black' }}>Casa Lomas De Machalí Machas</h2>
+        <p style={{ color: '#666', fontSize: 14, }}>{address+"kmdkdmm"}</p>
         <div className="property-info" style={{ display: 'flex', gap: '20px', margin: '10px 0' }}>
           <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
             <span role="img" aria-label="bed">🛏️</span>
-            {bedrooms}
+            {'20'}
           </span>
           <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
             <span role="img" aria-label="bath">🛁</span>
-            {bathrooms}
+            {'30'}
           </span>
           <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
             <span role="img" aria-label="area">📐</span>
-            {area} SqFT
+            {'area'} 
           </span>
         </div>
         <div style={{ display: 'flex',alignItems:'center', flexDirection: 'row', justifyContent: 'space-between' ,width:'100%'}}>

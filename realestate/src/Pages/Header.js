@@ -1,6 +1,7 @@
 // src/components/Header.js
 import React, { useState, useEffect, useRef } from 'react';
 import '../components/Header.css';
+import { Link } from 'react-router-dom';
 
 const Header = ({ scrollToContactUs }) => {
   const [show, setShow] = useState(true);
@@ -44,8 +45,8 @@ const Header = ({ scrollToContactUs }) => {
       <nav className={`nav-menu ${showMenu ? 'open' : ''}`}>
         <ul>
           <li><a style={{fontWeight:'700',paddingLeft:'1rem'}}>Home</a></li>
-          <li><a style={{fontWeight:'700',paddingLeft:'1rem'}}>Properties</a></li>
-          <li><a style={{fontWeight:'700',paddingLeft:'1rem'}}>Blogs</a></li>
+          <li><Link to='/properties' style={{fontWeight:'700',paddingLeft:'1rem'}}>Properties</Link></li>
+          <li><a style={{fontWeight:'700',paddingLeft:'1rem'}}>Site</a></li>
           <li><a style={{fontWeight:'700',paddingLeft:'1rem'}}>Appreciation</a></li>
           <li><a style={{fontWeight:'700',paddingLeft:'1rem'}}>Market</a></li>
           <li><a onClick={scrollToContactUs} style={{fontWeight:'700',paddingLeft:'1rem', cursor: 'pointer'}}>Contact Us</a></li>
