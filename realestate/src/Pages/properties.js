@@ -165,13 +165,13 @@ const RecommendedProperties = () => {
       </div>
       <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 20, boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', }}>
         {visibleProperties.map((property, index) => (
-          <Link style={{ textDecoration: 'none' }} to='/detailedPropties'><RealEstateItem
+        <RealEstateItem
             key={index}
-           
+
             image={property.image}
             address={property.address}
             price={property.price}
-          /></Link>
+          />
         ))}
       </div>
       {!showAll && properties.length > 10 && (

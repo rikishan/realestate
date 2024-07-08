@@ -12,9 +12,10 @@
     position: relative;
     width: 100%;
     height: 100%;
-    background-image: url('https://cdn.pixabay.com/photo/2016/08/28/16/43/stilt-house-1626354_1280.jpg');
+    background-image: url('https://homezennextjs.vercel.app/_next/static/media/slider-1.4ff3abf6.jpg');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
 }
 
 .text-overlay {
