@@ -1,15 +1,23 @@
 import React, { useState } from "react";
 import useForm from "./useForm";
 import validate from "../components/Validate";
-import { Link, Redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Form = (props) => {
   const { values, errors, handleChange, handleSubmit } = useForm(login, validate);
   const [loggedIn, setLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   function login() {
+    // Log email and password to the console
+    console.log("Email:", values.email);
+    console.log("Password:", values.password);
+    
+    // Set loggedIn to true
     setLoggedIn(true);
     
+    // Navigate to the new page
+    navigate('/admin-page'); // Replace '/new-page' with your target route
   }
 
   return (
@@ -44,7 +52,7 @@ const Form = (props) => {
               {errors.password && <p style={{ color: "red", marginTop: "5px" }}>{errors.password}</p>}
             </div>
             <button
-            
+              type="submit"
               style={{ width: "100%", padding: "10px", backgroundColor: "#17a2b8", color: "#fff", border: "none", borderRadius: "3px", cursor: "pointer" }}
             >
               Login

@@ -44,7 +44,7 @@ const Body = () => {
 
     useEffect(() => {
         handleAddProperty()
-      fetch('http://localhost:8000/properties')
+      fetch('http://localhost:3000/properties')
         .then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
@@ -75,7 +75,7 @@ const Body = () => {
           buildingType: "villa"
         };
     
-        fetch('http://localhost:8000/properties', {
+        fetch('http://localhost:3000/properties', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

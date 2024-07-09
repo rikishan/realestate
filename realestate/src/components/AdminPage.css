@@ -1,0 +1,60 @@
+.admin-container {
+    padding: 20px;
+  }
+  
+  .welcome-text {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    animation: fadeInOut 4s infinite;
+  }
+  
+  @keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+  
+  .properties-container {
+    margin-top: 20px;
+  }
+  
+  .properties-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .property-list-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .property-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .property-actions button {
+    padding: 5px 10px;
+    background-color: #17a2b8;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  
+  .property-actions button:nth-child(2) {
+    background-color: #dc3545;
+  }
+  

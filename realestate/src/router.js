@@ -1,16 +1,16 @@
-// src/router.js
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App';
 import RecommendedProperties from './Pages/properties';
 import Error from './Pages/Error';
 import PropertyDetails from './Pages/detailedProperties';
+import AdminPage from './Pages/adminPage';
 
 const appRouter = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement:<Error/>
+    errorElement: <Error />
   },
   {
     path: '/properties',
@@ -22,7 +22,11 @@ const appRouter = createBrowserRouter([
   },
   {
     path: '/detailedPropties',
-    element: <PropertyDetails/>
+    element: <PropertyDetails />
+  },
+  {
+    path: '/admin-page',
+    element: <AdminPage />
   }
 ]);
 
