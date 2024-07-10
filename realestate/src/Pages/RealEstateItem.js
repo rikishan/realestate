@@ -18,7 +18,7 @@ const profileImages = [
   'https://homezennextjs.vercel.app/images/avatar/avt-12.jpg'
 ];
 
-const RealEstateItem = ({ image, address, price, bedrooms, bathrooms, area, agent, clicked }) => {
+const RealEstateItem = ({ image, address, price, bedrooms, bathrooms, area, agent, clicked,site=true }) => {
   const [isFavorited, setIsFavorited] = useState(false);
 
   const toggleFavorite = (event) => {
@@ -105,7 +105,7 @@ const RealEstateItem = ({ image, address, price, bedrooms, bathrooms, area, agen
       <div style={{ padding: '10px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
         <h2 style={{ margin: '10px 0', fontSize: '18px', color: 'black',fontFamily:'Hanalei Fill' }}>Casa Lomas De Machalí Machas</h2>
         <p style={{ color: '#666', fontSize: '14px' }}>{address}</p>
-        <div style={{ display: 'flex', gap: '20px', margin: '10px 0' }}>
+       {site&& <div style={{ display: 'flex', gap: '20px', margin: '10px 0' }}>
           <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
             <span role="img" aria-label="bed">🛏️</span>
             {bedrooms}
@@ -118,11 +118,11 @@ const RealEstateItem = ({ image, address, price, bedrooms, bathrooms, area, agen
             <span role="img" aria-label="area">📐</span>
             {area}
           </span>
-        </div>
+        </div>}
         <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'row', justifyContent: 'space-between', width: '100%' }}>
           <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'row' }}>
           <img src={randomProfileImage} alt="Agent" style={{ width: '40px', height: '40px', borderRadius: '50%' }} />
-            <span style={{ marginLeft: '10px',color: '#666', }}>kishan</span>
+            <span style={{ marginLeft: '10px',color: '#666', filter:'blur(2px)'}}>kishan</span>
           </div>
           <p style={{ fontSize: '14px', fontWeight: 'bold', margin: '0',color: '#666', }}>${price}/SqFT</p>
         </div>

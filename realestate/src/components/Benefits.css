@@ -1,0 +1,58 @@
+.benefits-container {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: '#f7f7f7';
+  }
+  
+  .benefits-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+  }
+  
+  .benefit-item {
+    flex: 1;
+    max-width: 300px;
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.2s;
+  }
+  
+  .benefit-icon {
+    font-family: icomoon !important;
+    speak: never;
+    font-style: normal;
+    font-weight: 400;
+    font-feature-settings: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  .benefit-item:hover .benefit-icon {
+    animation: rotate 1s linear infinite;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    20% {
+      transform: rotate(72deg);
+    }
+    40% {
+      transform: rotate(144deg);
+    }
+    60% {
+      transform: rotate(216deg);
+    }
+    80% {
+      transform: rotate(288deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  

@@ -14,6 +14,8 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import ReviewCarousel from './Pages/anotherReview';
+import Benefits from './Pages/benefits';
 
 
 
@@ -36,8 +38,7 @@ function App() {
         <Review/>
         <p>Scroll down to hide the header. Scroll up to show it.</p>
         {/* Add more content here to make the page scrollable */}
-       
-       
+        <Benefits/>
       </main>
       
        <div ref={contactUsRef} style={{ padding: '50px', backgroundImage: 'url(https://homezennextjs.vercel.app/_next/static/media/banner-footer.4057eb3d.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
@@ -49,16 +50,5 @@ function App() {
     </div>
   );
 }
-const appRouter = createBrowserRouter([
-  {
-    path: '/',
-    element : <App/>
-
-  },
-  {
-    path:'/properties',
-    element:<RecommendedProperties/>
-  }
-])
 
 export default App;

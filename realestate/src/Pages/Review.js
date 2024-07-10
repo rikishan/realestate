@@ -6,7 +6,7 @@ const Review = () => {
   const reviews = [
     {
       id: 1,
-      imageUrl: 'path-to-image-1.jpg', // Replace with actual image path or URL
+      imageUrl: 'https://media.istockphoto.com/id/462772867/photo/inner-city-decay.jpg?s=612x612&w=0&k=20&c=qG0wAgSnOF05I1kR42KvFOKvoK3ypbGbg-uTEvIXivU=', // Replace with actual image path or URL
       customerName: 'John Doe',
       feedback: 'This app helped me find my dream home effortlessly. Highly recommended!',
     },
@@ -34,11 +34,11 @@ const Review = () => {
 
   return (
     <div style={{
-      backgroundImage: 'url(path-to-background-image.jpg)', // Replace with the actual image path
+      backgroundColor: '#f7f7f7', // Replace with the actual image path
       backgroundSize: 'cover',
       backgroundPosition: 'center',
-      padding: '50px',
-      minHeight: '100vh',
+      padding: '10px',
+      minHeight: '60vh',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
@@ -52,11 +52,43 @@ const Review = () => {
       }}>
         <div style={{
           flex: 1,
-          color: '#fff',
+          
           padding: '20px',
         }}>
           <h1>What Our Users Say</h1>
           <p>Discover what our users are saying about our real estate app. Their experiences and feedback help us improve and provide the best service possible.</p>
+       
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+            <button 
+             onMouseOver={(e) => { e.target.style.color = 'white'; e.target.style.backgroundColor = 'red'; }}
+             onMouseOut={(e) => { e.target.style.color = 'red'; e.target.style.backgroundColor = 'white'; }}
+            
+            onClick={handlePrev} style={{
+              backgroundColor: '#fff',
+              border: '1px solid #ccc',
+              borderRadius: '5%',
+              padding: '20px',
+              cursor: 'pointer',
+              transition: '0.3s',
+              marginRight: '10px',
+            }}>
+              &#8592;
+            </button>
+            <button
+             onMouseOver={(e) => { e.target.style.color = 'white'; e.target.style.backgroundColor = 'red'; }}
+             onMouseOut={(e) => { e.target.style.color = 'red'; e.target.style.backgroundColor = 'white'; }}
+            onClick={handleNext} style={{
+          backgroundColor: '#fff',
+          border: '1px solid #ccc',
+          borderRadius: '5%',
+          padding: '20px',
+          cursor: 'pointer',
+          transition: '0.3s',
+          marginRight: '10px',
+            }}>
+              &#8594;
+            </button>
+          </div>
         </div>
 
         <div style={{
@@ -66,27 +98,7 @@ const Review = () => {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
-            <button onClick={handlePrev} style={{
-              backgroundColor: '#fff',
-              border: '1px solid #ccc',
-              borderRadius: '50%',
-              padding: '10px',
-              cursor: 'pointer',
-              marginRight: '10px',
-            }}>
-              &#8592;
-            </button>
-            <button onClick={handleNext} style={{
-              backgroundColor: '#fff',
-              border: '1px solid #ccc',
-              borderRadius: '50%',
-              padding: '10px',
-              cursor: 'pointer',
-            }}>
-              &#8594;
-            </button>
-          </div>
+          
           <div style={{
             width: '250px',
             padding: '20px',
@@ -103,7 +115,7 @@ const Review = () => {
               style={{
                 width: '100%',
                 height: 'auto',
-                borderRadius: '50%',
+                borderRadius: '10%',
                 marginBottom: '10px',
               }}
             />

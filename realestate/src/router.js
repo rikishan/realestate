@@ -5,6 +5,8 @@ import RecommendedProperties from './Pages/properties';
 import Error from './Pages/Error';
 import PropertyDetails from './Pages/detailedProperties';
 import AdminPage from './Pages/adminPage';
+import RecommendedSite from './Pages/Site';
+import RecommendedLands from './Pages/Lands';
 
 const appRouter = createBrowserRouter([
   {
@@ -18,7 +20,7 @@ const appRouter = createBrowserRouter([
   },
   {
     path: '/site',
-    element: <RecommendedProperties />
+    element: <RecommendedSite />
   },
   {
     path: '/detailedPropties',
@@ -27,6 +29,10 @@ const appRouter = createBrowserRouter([
   {
     path: '/admin-page',
     element: <AdminPage />
+  },
+  {
+    path: '/Lands',
+    element: <RecommendedLands />
   }
 ]);
 
