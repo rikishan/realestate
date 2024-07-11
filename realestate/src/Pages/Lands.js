@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import RealEstateItem from './RealEstateItem';
+import { setData } from '../Utils';
+import { useNavigate } from 'react-router-dom';
 
 const RecommendedLands = () => {
   const [activeButton, setActiveButton] = useState('View All');
   const [showAll, setShowAll] = useState(false); // State to toggle between showing all and a subset
   const [properties, setProperties] = useState([]);
-
+  const navigate = useNavigate();
   const containerStyle = {
     textAlign: 'center',
     margin: '20px 0',
@@ -56,6 +58,10 @@ const RecommendedLands = () => {
       <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 20, boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', }}>
         {Array.isArray(properties) && properties.map((property, index) => (
           <RealEstateItem
+          clicked={()=>{
+            setData(property)
+            navigate('/properties');
+          }}
             key={index}
             site={false}
             image={property.images[0]}

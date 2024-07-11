@@ -3,18 +3,12 @@ import React, { useRef } from 'react';
 import './App.css';
 import Header from './Pages/Header';
 import Body from './Pages/Body';
-import RealEstateItem from './Pages/RealEstateItem';
 import RecommendedProperties from './Pages/properties';
 import CardSlider from './Pages/CardSlider';
 import CardComponent from './Pages/Services';
 import Counter from './Pages/Counter'
 import Review from './Pages/Review';
 import Footer from './Pages/Footer';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import ReviewCarousel from './Pages/anotherReview';
 import Benefits from './Pages/benefits';
 
 

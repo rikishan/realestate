@@ -84,8 +84,8 @@ const RealEstateItem = ({ image, address, price, bedrooms, bathrooms, area, agen
           borderRadius: '50px',
         }}>SALE</div>
       </div>
-      <Link style={{ textDecoration: 'none' }} to='/detailedPropties'>
-      <img src={image} alt="Property" style={{ width: '100%', borderRadius: '10px', transition: 'all 0.3s ease' }} /></Link>
+     
+      <img src={image} alt="Property" style={{ width: '100%', borderRadius: '10px', transition: 'all 0.3s ease' }} />
       <button
         className="heart-button"
         onClick={toggleFavorite}

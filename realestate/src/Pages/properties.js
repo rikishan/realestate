@@ -1,73 +1,51 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import RealEstateItem from './RealEstateItem';
 import { Link } from 'react-router-dom';
-
-const properties = [
-  {
-    image: 'https://homezennextjs.vercel.app/images/blog/blog-3.jpg',
-    address: '123 Main St, Anytown, USA',
-    price: '$250,000',
-  },
-  {
-    image: 'https://homezennextjs.vercel.app/images/blog/blog-3.jpg',
-    address: '456 Oak St, Sometown, USA',
-    price: '$350,000',
-  },
-  {
-    image: 'https://homezennextjs.vercel.app/images/blog/blog-3.jpg',
-    address: '456 Oak St, Sometown, USA',
-    price: '$350,000',
-  },
-  {
-    image: 'https://homezennextjs.vercel.app/images/blog/blog-3.jpg',
-    address: '456 Oak St, Sometown, USA',
-    price: '$350,000',
-  },
-  {
-    image: 'https://homezennextjs.vercel.app/images/blog/blog-3.jpg',
-    address: '456 Oak St, Sometown, USA',
-    price: '$350,000',
-  },
-  {
-    image: 'https://homezennextjs.vercel.app/images/blog/blog-3.jpg',
-    address: '456 Oak St, Sometown, USA',
-    price: '$350,000',
-  },
-  {
-    image: 'https://homezennextjs.vercel.app/images/blog/blog-3.jpg',
-    address: '123 Main St, Anytown, USA',
-    price: '$250,000',
-  },
-  {
-    image: 'https://homezennextjs.vercel.app/images/blog/blog-3.jpg',
-    address: '456 Oak St, Sometown, USA',
-    price: '$350,000',
-  },
-  {
-    image: 'https://homezennextjs.vercel.app/images/blog/blog-3.jpg',
-    address: '456 Oak St, Sometown, USA',
-    price: '$350,000',
-  },
-  {
-    image: 'https://homezennextjs.vercel.app/images/blog/blog-3.jpg',
-    address: '456 Oak St, Sometown, USA',
-    price: '$350,000',
-  },
-  {
-    image: 'https://homezennextjs.vercel.app/images/blog/blog-3.jpg',
-    address: '456 Oak St, Sometown, USA',
-    price: '$350,000',
-  },
-  {
-    image: 'https://homezennextjs.vercel.app/images/blog/blog-3.jpg',
-    address: '456 Oak St, Sometown, USA',
-    price: '$350,000',
-  },
-];
+import { useNavigate } from "react-router-dom";
+import { setData } from '../Utils';
 
 const RecommendedProperties = () => {
   const [activeButton, setActiveButton] = useState('View All');
   const [showAll, setShowAll] = useState(false); // State to toggle between showing all and a subset
+  const [filterButtonData, setfilterButtonData] = useState([])
+  const [properties, setProperties] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log("0000000000000",filterButtonData);
+  }, [])
+  
+  useEffect(() => {
+  fetch('http://localhost:3000/properties')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok ' + response.statusText);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Fetched data:', data.properties); // Add this line
+      const siteProperties = data.properties.filter(property => property.propertyType === 'building');
+      console.log("3456789",siteProperties);
+      setProperties(siteProperties);
+      setfilterButtonData(siteProperties)
+    })
+
+    .catch(error => console.error('There was a problem with the fetch operation:', error));
+}, []);
+
+
+
+
+
+
+useEffect(() => {
+  const delayFilter = setTimeout(() => {
+    
+  }, 3000);
+
+  return () => clearTimeout(delayFilter);
+}, [activeButton]);
 
   const containerStyle = {
     textAlign: 'center',
@@ -108,15 +86,37 @@ const RecommendedProperties = () => {
 
   const handleButtonClick = (button) => {
     setActiveButton(button);
-    setShowAll(false); // Reset to show subset when button is clicked
+    setShowAll(false); 
+
+    console.log(button);
+
+    if(button.toLowerCase()=='view all'){
+      setfilterButtonData(properties)
+    }else{
+      const filterData = properties?.filter(
+        (property) => property.buildingType.toLowerCase() == button.toLowerCase()
+      );
+      setfilterButtonData(filterData)
+      console.log("1234567890",filterData);
+    }
+    
   };
 
   const toggleShowAll = () => {
-    setShowAll(!showAll);
-  };
+   
+    const regex = /properties/;
 
-  // Determine how many items to display based on showAll state
+    if (regex.test(window.location.href)) {
+        console.log("The URL contains 'properties'.");
+        setShowAll(!showAll);
+    } else {
+      navigate('/properties');
+      
+    }
+   
+  };
   const visibleProperties = showAll ? properties : properties.slice(0, 10);
+
 
   return (
     <div style={containerStyle}>
@@ -166,17 +166,23 @@ const RecommendedProperties = () => {
       <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: 20, boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', }}>
         {visibleProperties.map((property, index) => (
         <RealEstateItem
-            key={index}
-
-            image={property.image}
-            address={property.address}
-            price={property.price}
-          />
+        key={index}
+        clicked={()=>{
+          setData(property)
+          navigate('/detailedPropties');
+        }}
+        image={property.images[0]}
+        address={property.address}
+        price={property.price}
+      />
         ))}
       </div>
       {!showAll && properties.length > 10 && (
-        <button className="view-more-button" onClick={toggleShowAll}>
-          View More
+        <button className="view-more-button" 
+        onClick={toggleShowAll}
+        >
+
+          View all
         </button>
       )}
     </div>

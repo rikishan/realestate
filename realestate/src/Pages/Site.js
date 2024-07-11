@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import RealEstateItem from './RealEstateItem';
-
+import { useNavigate,useHistory } from "react-router-dom";
+import { setData } from '../Utils';
 const RecommendedSite = () => {
   const [activeButton, setActiveButton] = useState('View All');
   const [showAll, setShowAll] = useState(false); // State to toggle between showing all and a subset
   const [properties, setProperties] = useState([]);
-
+  const navigate = useNavigate();
   const containerStyle = {
     textAlign: 'center',
     margin: '20px 0',
@@ -58,6 +59,10 @@ const RecommendedSite = () => {
           <RealEstateItem
             key={index}
             site={false}
+            clicked={()=>{
+              setData(property)
+              navigate('/detailedPropties');
+            }}
             image={property.images[0]}
             address={property.address}
             price={property.price}
