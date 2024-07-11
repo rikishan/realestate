@@ -131,7 +131,7 @@ const PropertyListItem = ({ property, onDelete, onEdit }) => {
       ) : (
         <>
           <RealEstateItem
-            image={'https://media.istockphoto.com/id/1345384816/photo/construction-industry-and-engineering-in-post-recession-period.jpg?s=612x612&w=0&k=20&c=3sK6hLkePixyVhbjrSDKATOx9cVnbor2d2qASBkUucM='}
+            image={property.images[0]}
             address={property.address}
             price={property.price}
             bedrooms={property.bedrooms}

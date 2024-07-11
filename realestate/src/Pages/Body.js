@@ -43,7 +43,7 @@ const Body = () => {
     const [properties, setProperties] = useState([]);
 
     useEffect(() => {
-        handleAddProperty()
+   
       fetch('http://localhost:3000/properties')
         .then(response => {
           if (!response.ok) {
@@ -56,46 +56,7 @@ const Body = () => {
     }, []);
 
 
-    const handleAddProperty = () => {
-        const propertyData = {
-          address: "123 Main St, City",
-          houseName: "Beautiful Villa",
-          rooms: 4,
-          bathrooms: 3,
-          squareFeet: 2500,
-          price: "$750,000",
-          customerImage: "https://example.com/customer-image.jpg",
-          images: [
-            "https://example.com/image1.jpg",
-            "https://example.com/image2.jpg",
-            "https://example.com/image3.jpg"
-          ],
-          landKunte: "30x40",
-          propertyType: "building",
-          buildingType: "villa"
-        };
-    
-        fetch('http://localhost:3000/properties', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(propertyData)
-        })
-        .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-          }
-          return response.json();
-        })
-        .then(data => {
-          console.log('Success:', data);
-          // You can update the state or perform other actions here
-        })
-        .catch(error => {
-          console.error('There was a problem with the fetch operation:', error);
-        });
-      };
+
 
     return (
         <div className="body">

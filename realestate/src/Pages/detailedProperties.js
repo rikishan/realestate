@@ -23,6 +23,7 @@ const PropertyDetails = () => {
       setLoading(false);
       setOpen(false);
     }, 3000);
+    store()
   };
 
   const handleCancel = () => {
@@ -79,10 +80,6 @@ const PropertyDetails = () => {
     setOpen(false);
   };
 
-  if (!property) {
-    return null; // Add a loading state or handle case where property data isn't available
-  }
-
   const inputStyle = {
     width: '100%',
     padding: '10px',
@@ -108,6 +105,28 @@ const PropertyDetails = () => {
     borderRadius: '4px',
     cursor: 'pointer'
   };
+
+
+  const store= () => {
+   
+    const existingData = JSON.parse(localStorage.getItem('contactFormData')) || [];
+    const newData = {
+      id: new Date().getTime(), // Unique ID for each submission
+      ...formData
+    };
+    const updatedData = [...existingData, newData];
+    localStorage.setItem('contactFormData', JSON.stringify(updatedData));
+    console.log('Form data saved to localStorage:', updatedData);
+    // Optionally reset the form
+    setFormData({
+      fullName: '',
+      phoneNumber: '',
+      emailAddress: '',
+      message: ''
+    });
+  };
+
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '20px' }}>
       <div style={{ width: '100vw', maxWidth: '100%', height: '70vh', overflow: 'hidden', position: 'relative' }}>
@@ -118,9 +137,16 @@ const PropertyDetails = () => {
         </div>
       </div>
       <div style={{ marginTop: '20px', textAlign: 'center' }}>
-        <h2>{property.title}</h2>
-        <p>{property.description}</p>
+        <h2>Address:{property.address}</h2>
+       {property.propertyType=='building'&& <p>House Name: {property.houseName}</p>}
+       {property.propertyType=='building'&& <p>Rooms: {property.rooms}</p>}
+        {property.propertyType=='building'&&<p>Bathrooms: {property.bathrooms}</p>}
+        <p>Square Feet: {property.squareFeet}</p>
         <p>Price: {property.price}</p>
+       {property.propertyType=='land'&& <p>Land Kunte: {property.landKunte}</p>}
+        <p>Property Type: {property.propertyType}</p>
+       {property.propertyType=='building'&& <p>Building Type: {property.buildingType}</p>}
+       
         {/* Add more details as needed */}
       </div>
       {open && (
@@ -172,7 +198,7 @@ const PropertyDetails = () => {
                 required
               />
               <br />
-              <button type="submit" style={{ ...submitButtonStyle }}>Submit</button>
+             
             </form>
             <p>A member of our team will contact you soon.</p>
           </div>

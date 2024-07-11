@@ -6,19 +6,19 @@ const Review = () => {
   const reviews = [
     {
       id: 1,
-      imageUrl: 'https://media.istockphoto.com/id/462772867/photo/inner-city-decay.jpg?s=612x612&w=0&k=20&c=qG0wAgSnOF05I1kR42KvFOKvoK3ypbGbg-uTEvIXivU=', // Replace with actual image path or URL
+      imageUrl: 'https://homezennextjs.vercel.app/images/agents/agent-3.jpg', // Replace with actual image path or URL
       customerName: 'John Doe',
       feedback: 'This app helped me find my dream home effortlessly. Highly recommended!',
     },
     {
       id: 2,
-      imageUrl: 'path-to-image-2.jpg', // Replace with actual image path or URL
+      imageUrl: 'https://homezennextjs.vercel.app/images/agents/agent-2.jpg', // Replace with actual image path or URL
       customerName: 'Jane Smith',
       feedback: 'A fantastic service with great customer support. Made my house hunting so much easier!',
     },
     {
       id: 3,
-      imageUrl: 'path-to-image-3.jpg', // Replace with actual image path or URL
+      imageUrl: 'https://homezennextjs.vercel.app/images/agents/agent-4.jpg', // Replace with actual image path or URL
       customerName: 'Robert Brown',
       feedback: 'Highly efficient and user-friendly. I found the perfect apartment in no time.',
     },

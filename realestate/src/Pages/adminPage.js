@@ -1,46 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropertyListItem from './PropertyListItem';
 import '../components/AdminPage.css';
 import { Modal } from 'antd';
+import DisplayStoredData from './DisplayedStored';
 
 const AdminPage = () => {
   const [properties, setProperties] = useState([
-    {
-      id: 1,
-      address: '123 Main St, City',
-      houseName: 'Beautiful Villa',
-      rooms: 4,
-      bathrooms: 3,
-      squareFeet: 2500,
-      price: '$750,000',
-      customerImage: 'https://example.com/customer-image.jpg',
-      images: [
-        'https://example.com/image1.jpg',
-        'https://example.com/image2.jpg',
-        'https://example.com/image3.jpg'
-      ],
-      landKunte: '30x40',
-      propertyType: 'building',
-      buildingType: 'villa'
-    },
-    {
-      id: 2,
-      address: '456 Elm St, City',
-      houseName: 'Modern Apartment',
-      rooms: 3,
-      bathrooms: 2,
-      squareFeet: 1500,
-      price: '$550,000',
-      customerImage: 'https://example.com/customer-image.jpg',
-      images: [
-        'https://example.com/image4.jpg',
-        'https://example.com/image5.jpg',
-        'https://example.com/image6.jpg'
-      ],
-      landKunte: '25x30',
-      propertyType: 'building',
-      buildingType: 'apartment'
-    }
   ]);
 
   const [open, setOpen] = useState(false);
@@ -74,6 +39,21 @@ const AdminPage = () => {
     transition: 'background-color 0.3s ease',
   };
 
+  useEffect(() => {
+    fetch('http://localhost:3000/properties')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Fetched data:', data.properties); // Add this line
+        
+        setProperties(data.properties);
+      })
+      .catch(error => console.error('There was a problem with the fetch operation:', error));
+  }, []);
 
   const handleSave = () => {
     // Validate form data before saving
@@ -119,6 +99,49 @@ const AdminPage = () => {
     console.log(formData);
   };
 
+
+  const deleteProperty = async (propertyId) => {
+    const url = `http://localhost:3000/properties/${propertyId}`;
+
+    try {
+      const response = await fetch(url, {
+        method: 'DELETE',
+      });
+
+      if (response.ok) {
+        setProperties(properties.filter((prop) => prop.id !== propertyId));
+        console.log('Property deleted successfully');
+      } else {
+        console.error('Failed to delete the property', response.status);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+
+  const updateProperty = async(propertyId, updatedData) =>{
+    const url = `http://localhost:3000/properties/${propertyId}`;
+  
+    try {
+      const response = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedData),
+      });
+  
+      if (response.ok) {
+        const updatedProperty = await response.json();
+        console.log('Property updated successfully', updatedProperty);
+      } else {
+        console.error('Failed to update the property', response.status);
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
   return (
     <div className="admin-container">
       <h1 className="welcome-text">Welcome Admin</h1>
@@ -137,12 +160,20 @@ const AdminPage = () => {
             <PropertyListItem
               key={property.id}
               property={property}
-              onDelete={(id) => setProperties(properties.filter((prop) => prop.id !== id))}
-              onEdit={(updatedProperty) => setProperties(properties.map((prop) => (prop.id === updatedProperty.id ? updatedProperty : prop)))}
+              onDelete={(id) => {
+                setProperties(properties.filter((prop) => prop.id !== id))
+                deleteProperty(id)
+              }}
+              onEdit={(updatedProperty) => {
+                setProperties(properties.map((prop) => (prop.id === updatedProperty.id ? updatedProperty : prop)))
+              console.log(updatedProperty);
+              updateProperty(updatedProperty.id,updatedProperty)
+              }}
             />
           ))}
         </div>
       </div>
+      <DisplayStoredData/>
       <Modal
         visible={open}
         onCancel={() => setOpen(false)}

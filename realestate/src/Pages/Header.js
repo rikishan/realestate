@@ -65,7 +65,7 @@ const Header = ({ scrollToContactUs }) => {
           <li><Link to='/properties' style={{ fontWeight: '700', paddingLeft: '1rem' }}>Properties</Link></li>
           <li><Link to='/site' style={{ fontWeight: '700', paddingLeft: '1rem' }}>Site</Link></li>
           <li><Link to='/Lands' style={{ fontWeight: '700', paddingLeft: '1rem' }}>Lands</Link></li>
-          <li><a style={{ fontWeight: '700', paddingLeft: '1rem' }}>Market</a></li>
+          <li><Link to='/sale' style={{ fontWeight: '700', paddingLeft: '1rem' }}>Sale</Link></li>
           <li><a onClick={scrollToContactUs} style={{ fontWeight: '700', paddingLeft: '1rem', cursor: 'pointer' }}>Contact Us</a></li>
           <li>
             <button
