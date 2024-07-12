@@ -3,17 +3,18 @@ import '../components/Benefits.css';
 
 const benefits = [
   {
-    icon: 'path/to/icon1.png', // Replace with actual paths to your icons
+   
+    icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThXofy44WQNpvsImufKcqB0h1HSt7Qbtckjg&usqp=CAU', // Replace with actual paths to your icons
     title: 'Proven Expertise',
     description: 'Our seasoned team excels in real estate with years of successful market navigation, offering informed decisions and optimal results.',
   },
   {
-    icon: 'path/to/icon2.png',
+    icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6fIrv2Az29i5OitsOtY-mLFIHaxsC3jZM8mABUraBJ_ngPZtMvDAy8vi4YLP2P4Jl7xQ&usqp=CAU',
     title: 'Customized Solutions',
     description: 'We pride ourselves on crafting personalized strategies to match your unique goals, ensuring a seamless real estate journey.',
   },
   {
-    icon: 'path/to/icon3.png',
+    icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQd2o6YaPTG9cC88-rByQjIirKbZ_MhWmDWw&usqp=CAU',
     title: 'Transparent Partnerships',
     description: 'Transparency is key in our client relationships. We prioritize clear communication and ethical practices, fostering trust and reliability throughout.',
   },
